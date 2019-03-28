@@ -8,7 +8,7 @@ export default function LandingPage() {
     return (
         <section>
             <h1>Champions</h1>
-            <img className='landing-img' alt='landing icon' src={logo}></img>
+            <img className='landing-img' alt='landing icon' src={logo} />
             <div className='flex-column'>
                 <button className='landing-button'>
                     Log In

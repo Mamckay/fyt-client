@@ -20,13 +20,13 @@ export default function Dashboard() {
             <div className='dashboard-container'>
                 <Link to='/goals' className='dashboard-card'>
                     <div>
-                        <img alt='Goals icon' className='dashboard-img' src={target}></img>
+                        <img alt='Goals icon' className='dashboard-img' src={target} />
                         <h2>Goals</h2>
                     </div>
                 </Link>
                 <Link to='/workout' className='dashboard-card'>
                     <div>
-                        <img alt='Workout icon' className='dashboard-img' src={workout}></img>
+                        <img alt='Workout icon' className='dashboard-img' src={workout} />
                         <h2>Workout</h2>
                     </div>
                 </Link>

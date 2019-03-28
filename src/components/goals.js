@@ -16,7 +16,14 @@ export default function Goals() {
     const goals = () => {
         return <div onClick={() => {
             setNewGoal(!newGoal);
-        }} className='goal-card'><img src={plusSign}></img></div>
+        }} className='goal-card'><img alt='Add goal plus sign' src={plusSign} /></div>
+    }
+
+    const reset = () => {
+        setDistance(false);
+        setTime(false);
+        setWeight(false);
+        setReps(false);
     }
 
     const goalInputs = () => {
@@ -173,6 +180,7 @@ export default function Goals() {
                     <label>Choose Exercise</label>
                     <select onChange={e => {
                         setExercise(e.target.value);
+                        reset();
                     }} name='type'>
                         <option></option>
                         <option value='pushups'>Push Ups</option>
@@ -189,6 +197,7 @@ export default function Goals() {
                     <label>Choose Exercise</label>
                     <select onChange={e => {
                         setExercise(e.target.value);
+                        reset();
                     }} name='type'>
                         <option></option>
                         <option value='biking'>Biking</option>
@@ -203,6 +212,7 @@ export default function Goals() {
                     <label>Choose Exercise</label>
                     <select onChange={e => {
                         setExercise(e.target.value);
+                        reset();
                     }} name='type'>
                         <option></option>
                         <option value='yoga'>Yoga</option>
@@ -229,6 +239,7 @@ export default function Goals() {
                     <form onSubmit={e => {
                         e.preventDefault();
                         /* TODO Setup a fetch here */
+                        console.log('Type: Goal')
                         console.log(category);
                         console.log(exercise);
                         console.log(reps);
