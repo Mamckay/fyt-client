@@ -1,0 +1,47 @@
+.dashboard-statistics{
+    display:flex;
+    justify-content: space-evenly;
+    background-color: #474658;
+}
+
+.dashboard-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.dashboard-title{
+    font-size: 30px;
+    color: #00b4ff;
+}
+
+.dashboard-text{
+    width: 300px;
+    font-size: 25px;
+    text-align: left;
+}
+
+.dashboard-img{
+    width: 300px;
+}
+
+.dashboard-card{
+    padding: 2%;
+    background-color: #474658;
+    margin: 1%;
+    border-radius: 10px;
+    transition: .3s;
+}
+
+.dashboard-card-title{
+    font-size: 20px;
+}
+
+.dashboard-card:hover{
+    cursor: pointer;
+    background-color: white;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}

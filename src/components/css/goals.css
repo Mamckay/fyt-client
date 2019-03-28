@@ -1,0 +1,57 @@
+.goal-card{
+    border: 2px solid #fb0;
+    border-radius: 10px;
+    width: 200px;
+    height: 300px;
+    margin: 1%;
+}
+
+.goals-title{
+    font-size: 30px;
+}
+
+.goal-container{
+    display: flex;
+}
+
+.goal-card img{
+    width:100px;
+    margin: 45% auto;
+}
+
+.goal-card:hover{
+    cursor: pointer;
+}
+
+.goals-form{
+    display:flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 3% auto;
+}
+
+.goals-form select{
+    margin:auto;
+    width: 295px;
+    height: 30px;
+}
+
+.goals-form input{
+    height: 30px;
+    margin: 1%;
+}
+
+.goals-form button{
+    background-color: transparent;
+    border: solid 2px #fb0;
+    height: 35px;
+    font-size: 25px;
+    color: white;
+    transition: .3s;
+}
+
+.goals-form button:hover{
+    background-color: #fb0;
+    color: #302e42;
+    cursor: pointer;
+}

@@ -1,0 +1,43 @@
+.workout-img{
+    width: 100px;
+}
+
+.workout-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.workout-container div:hover{
+    cursor: pointer;
+}
+
+.workout-title{
+    font-size: 30px;
+}
+
+.workout-form{
+    display:flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 3% auto;
+}
+
+.workout-form input{
+    height: 30px;
+    margin: 1%;
+}
+
+.workout-form button{
+    background-color: transparent;
+    border: solid 2px #fb0;
+    height: 35px;
+    font-size: 25px;
+    color: white;
+    transition: .3s;
+}
+
+.workout-form button:hover{
+    background-color: #fb0;
+    color: #302e42;
+    cursor: pointer;
+}

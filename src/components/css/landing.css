@@ -1,0 +1,33 @@
+html {
+    background-color: #1b1a26;
+}
+
+main {
+    margin:0;
+    padding:0;
+    background-color: #302e42;
+    color: white;
+    padding-bottom: 25px
+}
+
+.landing-button{
+    width: 200px;
+    border-radius: 5px;
+    padding:3px;
+    background-color: #fb0;
+    margin: auto;
+    font-size: 20px;
+    border: 2px solid #fb0;
+    color: #302e42;
+    transition: .3s;
+    margin-bottom: 1%;
+}
+
+.landing-img{
+    max-width:90%;
+}
+
+h1{
+    margin-top: 0;
+    padding: 15px;
+}

@@ -1,26 +1,28 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import LandingPage from './components/landing.js';
+import Dashboard from './components/dashboard.js';
+import NavbarR from './components/navbar.js';
+import Workout from './components/workout.js';
+import Goals from './components/goals.js';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router>
+        <div className="App">
+          <NavbarR />
+          <main>
+            <Switch>
+              <Route exact path='/' component={LandingPage} />
+              <Route exact path='/dashboard' component={Dashboard} />
+              <Route exact path='/workout' component={Workout} />
+              <Route exact path='/goals' component={Goals} />
+            </Switch>
+          </main>
+        </div>
+      </Router>
     );
   }
 }

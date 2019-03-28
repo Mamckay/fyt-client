@@ -1,0 +1,41 @@
+
+.nav-burger{
+    width: 75px;
+}
+
+.nav-logo{
+    width: 90px;
+}
+
+.navbar{
+    height: 100px;
+    margin: 10px 0 0;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #fd0;
+}
+
+.navbar > div{
+    margin: 0 20px;
+}
+
+.sudo-select{
+    background: #474658;
+    margin:0;
+    width: 200px;
+    position: absolute;
+    right:0;
+    top:112px;
+    color: #fb0;
+}
+
+.sudo-select > div{
+    margin:5px;
+    font-size: 20px;
+    transition: .3s;
+}
+
+.sudo-select > div:hover{
+    cursor: pointer;
+    color:white;
+}
