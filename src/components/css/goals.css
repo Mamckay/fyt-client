@@ -13,6 +13,7 @@
 .goal-container{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .goal-card img{

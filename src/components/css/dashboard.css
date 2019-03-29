@@ -45,3 +45,20 @@ a{
     text-decoration: none;
     color: white;
 }
+
+@media only screen and (max-width: 1100px) {
+.dashboard-container{
+    justify-content: center;
+    flex-direction: column;
+}
+
+.dashboard-img{
+    width:100px;
+}
+.dashboard-statistics{
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+}

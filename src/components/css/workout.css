@@ -41,3 +41,11 @@
     color: #302e42;
     cursor: pointer;
 }
+
+
+@media only screen and (max-width: 600px) {
+    .workout-container{
+        justify-content: center;
+        flex-direction: column;
+    }
+}

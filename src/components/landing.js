@@ -9,10 +9,10 @@ export default function LandingPage() {
         <section className=''>
             <div className='landing-intro flex-column'>
                 <div>
-                    <header>
-                        <h1 className='champion-header'>Champions</h1>
+                    <header className='champion-header'>
+                        <h1>Champions</h1>
                     </header>
-                    <img className='landing-background' src={landing} />
+                    <div className='landing-background' />
                 </div>
             </div>
         </section>
