@@ -1,6 +1,7 @@
 import React from 'react';
 import target from '../assets/target.svg';
 import workout from '../assets/yoga.png';
+import history from '../assets/notebook.png';
 import { Link } from 'react-router-dom';
 import './css/dashboard.css';
 
@@ -28,6 +29,12 @@ export default function Dashboard() {
                     <div>
                         <img alt='Workout icon' className='dashboard-img' src={workout} />
                         <h2>Workout</h2>
+                    </div>
+                </Link>
+                <Link to='/workout' className='dashboard-card'>
+                    <div>
+                        <img alt='Workout icon' className='dashboard-img' src={history} />
+                        <h2>Workout History</h2>
                     </div>
                 </Link>
             </div>

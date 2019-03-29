@@ -246,7 +246,7 @@ export default function Workout() {
                             <option value='swimming'>Swimming</option>
                         </select>
                         {workoutInputs()}
-                        <button>Submit Goal</button>
+                        <button>Submit Workout</button>
                     </form>
                 ) : null}
                 {strength ? (
@@ -276,7 +276,7 @@ export default function Workout() {
                             <option value='situps'>Sit Ups</option>
                         </select>
                         {workoutInputs()}
-                        <button>Submit Goal</button>
+                        <button>Submit Workout</button>
                     </form>
                 ) : null}
                 {balance ? (
@@ -303,7 +303,7 @@ export default function Workout() {
                             <option value='wall'>Wall Squats/Chair Squats</option>
                         </select>
                         {workoutInputs()}
-                        <button>Submit Goal</button>
+                        <button>Submit Workout</button>
                     </form>
                 ) : null}
 

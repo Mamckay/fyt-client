@@ -14,9 +14,7 @@ export default function Goals() {
 
 
     const goals = () => {
-        return <div onClick={() => {
-            setNewGoal(!newGoal);
-        }} className='goal-card'><img alt='Add goal plus sign' src={plusSign} /></div>
+        return <div></div>
     }
 
     const reset = () => {
@@ -232,6 +230,9 @@ export default function Goals() {
                 <h1 className='goals-title'>My Goals</h1>
                 <div className='goal-container'>
                     {goals()}
+                    <div onClick={() => {
+                        setNewGoal(!newGoal);
+                    }} className='goal-card'><img alt='Add goal plus sign' src={plusSign} /></div>
                 </div>
             </section>
             <section>
