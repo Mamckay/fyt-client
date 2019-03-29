@@ -5,14 +5,14 @@ import './css/modal.css';
 
 const modalRoot = document.getElementById('modal-root')
 
-export default function Modal(props) {
+export default function Login(props) {
     const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
 
     const userLogin = () => {
         let data = {
             username: user,
-            password,
+            password
         };
 
         console.log(data);
@@ -27,23 +27,16 @@ export default function Modal(props) {
                 return res.json();
             })
             .then(result => {
-                console.log(result.authToken);
                 if (result.reason) {
                     alert(result.data.message);
                     return false;
                 } else {
                     const token = result.authToken;
                     localStorage.setItem("jwtToken", token);
-                    // Set token to Auth header
-                    //setAuthToken(token);
-                    // Decode token to get user data
-                    // const dwecoded = jwt_decode(token);
-                    // Set current user
                     return true;
                 }
             })
             .then(component => {
-                console.log(component);
                 if (component) {
                     props.onClose();
                     props.closeMenu();

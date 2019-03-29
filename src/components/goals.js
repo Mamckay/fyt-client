@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import plusSign from '../assets/plussign.png'
+import React, { useState, useEffect } from 'react';
+import plusSign from '../assets/plussign.png';
+import { API_BASE_URL } from "../config";
 import './css/goals.css';
 
 export default function Goals() {
@@ -12,10 +13,71 @@ export default function Goals() {
     const [time, setTime] = useState(false);
     const [distance, setDistance] = useState(false);
 
+    const [goals, setGoals] = useState(null);
 
-    const goals = () => {
-        return <div></div>
+    const submitGoal = () => {
+        let data = {
+            Category: category,
+            Exercise: exercise,
+            Reps: reps,
+            Weight: weight,
+            Time: time,
+            Distance: distance
+        }
+        fetch(`${API_BASE_URL}/goal`, {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+                Authorization: "Bearer ".concat(
+                    localStorage.getItem("jwtToken")
+                )
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => {
+                return res.json();
+            })
+            .then(result => console.log(result))
+            .catch(err => {
+                console.log(err);
+            });
     }
+
+    const fetchGoals = () => {
+        fetch(`${API_BASE_URL}/goal/user/all`, {
+            method: "GET",
+            headers: {
+                "content-type": "application/json",
+                Authorization: "Bearer ".concat(
+                    localStorage.getItem("jwtToken")
+                )
+            }
+        })
+            .then(res => {
+                return res.json();
+            })
+            .then(results => {
+                const item = results.map((result, index) => {
+                    let temp = Object.keys(result.goal);
+                    let dog = temp.map((title, index) => {
+                        return <div key={index}>{title}: {result.goal[title]}</div>
+                    })
+
+                    return <div key={index} className='goal-card'>{dog}</div>
+
+                })
+
+                setGoals(item);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
+
+    useEffect(() => {
+        fetchGoals()
+    }, [])
+
 
     const reset = () => {
         setDistance(false);
@@ -26,25 +88,14 @@ export default function Goals() {
 
     const goalInputs = () => {
         switch (exercise) {
-            case 'pushups':
+            case 'Pushups':
                 return <React.Fragment>
                     <label>Reps</label>
                     <input onChange={e => {
                         setReps(e.target.value);
                     }}></input>
                 </React.Fragment>;
-            case 'squats':
-                return <React.Fragment>
-                    <label>Reps</label>
-                    <input onChange={e => {
-                        setReps(e.target.value);
-                    }}></input>
-                    <label>Weight</label>
-                    <input onChange={e => {
-                        setWeight(e.target.value);
-                    }}></input>
-                </React.Fragment>;
-            case 'bench':
+            case 'Squats':
                 return <React.Fragment>
                     <label>Reps</label>
                     <input onChange={e => {
@@ -55,7 +106,7 @@ export default function Goals() {
                         setWeight(e.target.value);
                     }}></input>
                 </React.Fragment>;
-            case 'incline':
+            case 'Bench':
                 return <React.Fragment>
                     <label>Reps</label>
                     <input onChange={e => {
@@ -66,7 +117,7 @@ export default function Goals() {
                         setWeight(e.target.value);
                     }}></input>
                 </React.Fragment>;
-            case 'rows':
+            case 'Incline':
                 return <React.Fragment>
                     <label>Reps</label>
                     <input onChange={e => {
@@ -77,21 +128,32 @@ export default function Goals() {
                         setWeight(e.target.value);
                     }}></input>
                 </React.Fragment>;
-            case 'pullups':
+            case 'Rows':
+                return <React.Fragment>
+                    <label>Reps</label>
+                    <input onChange={e => {
+                        setReps(e.target.value);
+                    }}></input>
+                    <label>Weight</label>
+                    <input onChange={e => {
+                        setWeight(e.target.value);
+                    }}></input>
+                </React.Fragment>;
+            case 'Pullups':
                 return <React.Fragment>
                     <label>Reps</label>
                     <input onChange={e => {
                         setReps(e.target.value);
                     }}></input>
                 </React.Fragment>;
-            case 'situps':
+            case 'Situps':
                 return <React.Fragment>
                     <label>Reps</label>
                     <input onChange={e => {
                         setReps(e.target.value);
                     }}></input>
                 </React.Fragment>;
-            case 'biking':
+            case 'Biking':
                 return <React.Fragment>
                     <label>Distance</label>
                     <input onChange={e => {
@@ -102,14 +164,14 @@ export default function Goals() {
                         setTime(e.target.value);
                     }}></input>
                 </React.Fragment>;
-            case 'hiking':
+            case 'Hiking':
                 return <React.Fragment>
                     <label>Distance</label>
                     <input onChange={e => {
                         setReps(e.target.value);
                     }}></input>
                 </React.Fragment>;
-            case 'walking':
+            case 'Walking':
                 return <React.Fragment>
                     <label>Distance</label>
                     <input onChange={e => {
@@ -120,7 +182,7 @@ export default function Goals() {
                         setTime(e.target.value);
                     }}></input>
                 </React.Fragment>;
-            case 'running':
+            case 'Running':
                 return <React.Fragment>
                     <label>Distance</label>
                     <input onChange={e => {
@@ -131,35 +193,35 @@ export default function Goals() {
                         setTime(e.target.value);
                     }}></input>
                 </React.Fragment>;
-            case 'swimming':
+            case 'Swimming':
                 return <React.Fragment>
                     <label>Distance</label>
                     <input onChange={e => {
                         setDistance(e.target.value);
                     }}></input>
                 </React.Fragment>;
-            case 'yoga':
+            case 'Yoga':
                 return <React.Fragment>
                     <label>Time</label>
                     <input onChange={e => {
                         setTime(e.target.value);
                     }}></input>
                 </React.Fragment>;
-            case 'stretching':
+            case 'Stretching':
                 return <React.Fragment>
                     <label>Time</label>
                     <input onChange={e => {
                         setTime(e.target.value);
                     }}></input>
                 </React.Fragment>;
-            case 'meditation':
+            case 'Meditation':
                 return <React.Fragment>
                     <label>Time</label>
                     <input onChange={e => {
                         setTime(e.target.value);
                     }}></input>
                 </React.Fragment>;
-            case 'wall':
+            case 'Wall':
                 return <React.Fragment>
                     <label>Time</label>
                     <input onChange={e => {
@@ -181,13 +243,13 @@ export default function Goals() {
                         reset();
                     }} name='type'>
                         <option></option>
-                        <option value='pushups'>Push Ups</option>
-                        <option value='squats'>Squats</option>
-                        <option value='bench'>Bench Press</option>
-                        <option value='incline'>Incline Press</option>
-                        <option value='rows'>Rows</option>
-                        <option value='pullups'>Pull Ups</option>
-                        <option value='situps'>Sit Ups</option>
+                        <option value='Pushups'>Push Ups</option>
+                        <option value='Squats'>Squats</option>
+                        <option value='Bench'>Bench Press</option>
+                        <option value='Incline'>Incline Press</option>
+                        <option value='Rows'>Rows</option>
+                        <option value='Pullups'>Pull Ups</option>
+                        <option value='Situps'>Sit Ups</option>
                     </select>
                 </React.Fragment>;
             case 'Endurance':
@@ -198,11 +260,11 @@ export default function Goals() {
                         reset();
                     }} name='type'>
                         <option></option>
-                        <option value='biking'>Biking</option>
-                        <option value='hiking'>Hiking</option>
-                        <option value='walking'>Walking</option>
-                        <option value='running'>Running</option>
-                        <option value='swimming'>Swimming</option>
+                        <option value='Biking'>Biking</option>
+                        <option value='Hiking'>Hiking</option>
+                        <option value='Walking'>Walking</option>
+                        <option value='Running'>Running</option>
+                        <option value='Swimming'>Swimming</option>
                     </select>
                 </React.Fragment>;
             case 'Balance':
@@ -213,10 +275,10 @@ export default function Goals() {
                         reset();
                     }} name='type'>
                         <option></option>
-                        <option value='yoga'>Yoga</option>
-                        <option value='stretching'>Stretching</option>
-                        <option value='meditation'>Meditation</option>
-                        <option value='wall'>Wall Squats/Chair Squats</option>
+                        <option value='Yoga'>Yoga</option>
+                        <option value='Stretching'>Stretching</option>
+                        <option value='Meditation'>Meditation</option>
+                        <option value='Wall'>Wall Squats/Chair Squats</option>
                     </select>
                 </React.Fragment>;
             default:
@@ -229,7 +291,7 @@ export default function Goals() {
             <section>
                 <h1 className='goals-title'>My Goals</h1>
                 <div className='goal-container'>
-                    {goals()}
+                    {goals}
                     <div onClick={() => {
                         setNewGoal(!newGoal);
                     }} className='goal-card'><img alt='Add goal plus sign' src={plusSign} /></div>
@@ -240,7 +302,8 @@ export default function Goals() {
                     <form onSubmit={e => {
                         e.preventDefault();
                         /* TODO Setup a fetch here */
-                        console.log('Type: Goal')
+                        submitGoal();
+                        console.log('Type: Goal');
                         console.log(category);
                         console.log(exercise);
                         console.log(reps);

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Endurance from '../assets/endurance.png';
 import Strength from '../assets/strength.png';
 import Balance from '../assets/balance.png';
+import { API_BASE_URL } from "../config";
 import './css/workout.css';
 
 export default function Workout() {
@@ -17,23 +18,50 @@ export default function Workout() {
     const [exercise, setExercise] = useState(false);
 
     const reset = () => {
-        console.log('hello');
         setDistance(false);
         setTime(false);
         setWeight(false);
         setReps(false);
     }
 
+    const submitGoal = () => {
+        let data = {
+            Category: category,
+            Exercise: exercise,
+            Reps: reps,
+            Weight: weight,
+            Time: time,
+            Distance: distance
+        }
+        fetch(`${API_BASE_URL}/workout`, {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+                Authorization: "Bearer ".concat(
+                    localStorage.getItem("jwtToken")
+                )
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => {
+                return res.json();
+            })
+            .then(result => console.log(result))
+            .catch(err => {
+                console.log(err);
+            });
+    }
+
     const workoutInputs = () => {
         switch (exercise) {
-            case 'pushups':
+            case 'Pushups':
                 return <React.Fragment>
                     <label>Reps</label>
                     <input onChange={e => {
                         setReps(e.target.value);
                     }}></input>
                 </React.Fragment>;
-            case 'squats':
+            case 'Squats':
                 return <React.Fragment>
                     <label>Reps</label>
                     <input onChange={e => {
@@ -44,7 +72,18 @@ export default function Workout() {
                         setWeight(e.target.value);
                     }}></input>
                 </React.Fragment>;
-            case 'bench':
+            case 'Bench':
+                return <React.Fragment>
+                    <label>Reps</label>
+                    <input onChange={e => {
+                        setReps(e.target.value);
+                    }}></input>
+                    <label>Weight</label>
+                    <input onChange={e => {
+                        setWeight(e.target.value);
+                    }}></input>
+                </React.Fragment>;
+            case 'Incline':
                 return <React.Fragment>
                     <label>Reps</label>
                     <input onChange={e => {
@@ -66,7 +105,7 @@ export default function Workout() {
                         setWeight(e.target.value);
                     }}></input>
                 </React.Fragment>;
-            case 'rows':
+            case 'Rows':
                 return <React.Fragment>
                     <label>Reps</label>
                     <input onChange={e => {
@@ -77,21 +116,21 @@ export default function Workout() {
                         setWeight(e.target.value);
                     }}></input>
                 </React.Fragment>;
-            case 'pullups':
+            case 'Pullups':
                 return <React.Fragment>
                     <label>Reps</label>
                     <input onChange={e => {
                         setReps(e.target.value);
                     }}></input>
                 </React.Fragment>;
-            case 'situps':
+            case 'Situps':
                 return <React.Fragment>
                     <label>Reps</label>
                     <input onChange={e => {
                         setReps(e.target.value);
                     }}></input>
                 </React.Fragment>;
-            case 'biking':
+            case 'Biking':
                 return <React.Fragment>
                     <label>Distance</label>
                     <input onChange={e => {
@@ -102,14 +141,14 @@ export default function Workout() {
                         setTime(e.target.value);
                     }}></input>
                 </React.Fragment>;
-            case 'hiking':
+            case 'Hiking':
                 return <React.Fragment>
                     <label>Distance</label>
                     <input onChange={e => {
                         setReps(e.target.value);
                     }}></input>
                 </React.Fragment>;
-            case 'walking':
+            case 'Walking':
                 return <React.Fragment>
                     <label>Distance</label>
                     <input onChange={e => {
@@ -120,7 +159,7 @@ export default function Workout() {
                         setTime(e.target.value);
                     }}></input>
                 </React.Fragment>;
-            case 'running':
+            case 'Running':
                 return <React.Fragment>
                     <label>Distance</label>
                     <input onChange={e => {
@@ -131,35 +170,35 @@ export default function Workout() {
                         setTime(e.target.value);
                     }}></input>
                 </React.Fragment>;
-            case 'swimming':
+            case 'Swimming':
                 return <React.Fragment>
                     <label>Distance</label>
                     <input onChange={e => {
                         setDistance(e.target.value);
                     }}></input>
                 </React.Fragment>;
-            case 'yoga':
+            case 'Yoga':
                 return <React.Fragment>
                     <label>Time</label>
                     <input onChange={e => {
                         setTime(e.target.value);
                     }}></input>
                 </React.Fragment>;
-            case 'stretching':
+            case 'Stretching':
                 return <React.Fragment>
                     <label>Time</label>
                     <input onChange={e => {
                         setTime(e.target.value);
                     }}></input>
                 </React.Fragment>;
-            case 'meditation':
+            case 'Meditation':
                 return <React.Fragment>
                     <label>Time</label>
                     <input onChange={e => {
                         setTime(e.target.value);
                     }}></input>
                 </React.Fragment>;
-            case 'wall':
+            case 'Wall':
                 return <React.Fragment>
                     <label>Time</label>
                     <input onChange={e => {
@@ -225,6 +264,7 @@ export default function Workout() {
                     <form id='create-workout' onSubmit={e => {
                         e.preventDefault();
                         /* TODO Setup a fetch here */
+                        submitGoal();
                         console.log('Type: Workout');
                         console.log('Category:', category);
                         console.log('Exercise:', exercise);
@@ -239,11 +279,11 @@ export default function Workout() {
                             reset();
                         }} name='type'>
                             <option></option>
-                            <option value='biking'>Biking</option>
-                            <option value='hiking'>Hiking</option>
-                            <option value='walking'>Walking</option>
-                            <option value='running'>Running</option>
-                            <option value='swimming'>Swimming</option>
+                            <option value='Biking'>Biking</option>
+                            <option value='Hiking'>Hiking</option>
+                            <option value='Walking'>Walking</option>
+                            <option value='Running'>Running</option>
+                            <option value='Swimming'>Swimming</option>
                         </select>
                         {workoutInputs()}
                         <button>Submit Workout</button>
@@ -253,6 +293,7 @@ export default function Workout() {
                     <form onSubmit={e => {
                         e.preventDefault();
                         /* TODO Setup a fetch here */
+                        submitGoal();
                         console.log('Type: Workout');
                         console.log('Category:', category);
                         console.log('Exercise:', exercise);
@@ -267,13 +308,13 @@ export default function Workout() {
                             reset();
                         }} name='type'>
                             <option></option>
-                            <option value='pushups'>Push Ups</option>
-                            <option value='squats'>Squats</option>
-                            <option value='bench'>Bench Press</option>
-                            <option value='incline'>Incline Press</option>
-                            <option value='rows'>Rows</option>
-                            <option value='pullups'>Pull Ups</option>
-                            <option value='situps'>Sit Ups</option>
+                            <option value='Pushups'>Push Ups</option>
+                            <option value='Squats'>Squats</option>
+                            <option value='Bench'>Bench Press</option>
+                            <option value='Incline'>Incline Press</option>
+                            <option value='Rows'>Rows</option>
+                            <option value='Pullups'>Pull Ups</option>
+                            <option value='Situps'>Sit Ups</option>
                         </select>
                         {workoutInputs()}
                         <button>Submit Workout</button>
@@ -283,6 +324,7 @@ export default function Workout() {
                     <form onSubmit={e => {
                         e.preventDefault();
                         /* TODO Setup a fetch here */
+                        submitGoal();
                         console.log('Type: Workout');
                         console.log('Category:', category);
                         console.log('Exercise:', exercise);
@@ -297,10 +339,10 @@ export default function Workout() {
                             reset();
                         }} name='type'>
                             <option></option>
-                            <option value='yoga'>Yoga</option>
-                            <option value='stretching'>Stretching</option>
-                            <option value='meditation'>Meditation</option>
-                            <option value='wall'>Wall Squats/Chair Squats</option>
+                            <option value='Yoga'>Yoga</option>
+                            <option value='Stretching'>Stretching</option>
+                            <option value='Meditation'>Meditation</option>
+                            <option value='Wall'>Wall Squats/Chair Squats</option>
                         </select>
                         {workoutInputs()}
                         <button>Submit Workout</button>

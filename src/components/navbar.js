@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Modal from './modal';
+import Login from './login';
+import Register from './register';
 import hamburger from '../assets/hamburger.png';
 import logo from '../assets/icon.png';
 import { withRouter } from "react-router";
@@ -58,12 +59,12 @@ function Navbar(props) {
             </section>
         ) : null}
         {loginModal ? (
-            <Modal history={props.history} setLoggedIn={() => setLoggedIn(true)} closeMenu={() => setLoginMenu(false)} onClose={() => setLoginModal(false)}>
-            </Modal>
+            <Login history={props.history} setLoggedIn={() => setLoggedIn(true)} closeMenu={() => setLoginMenu(false)} onClose={() => setLoginModal(false)}>
+            </Login>
         ) : null}
         {registerModal ? (
-            <Modal history={props.history} setLoggedIn={() => setLoggedIn(true)} closeMenu={() => setLoginMenu(false)} onClose={() => setRegisterModal(false)}>
-            </Modal>
+            <Register history={props.history} closeMenu={() => setLoginMenu(false)} onClose={() => setRegisterModal(false)}>
+            </Register>
         ) : null}
     </section>
 }

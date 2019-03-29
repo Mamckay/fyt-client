@@ -16,7 +16,6 @@ export default function Register(props) {
             password,
         };
 
-        console.log(data);
         fetch(`${API_BASE_URL}/users/`, {
             method: "POST",
             headers: {
@@ -28,27 +27,17 @@ export default function Register(props) {
                 return res.json();
             })
             .then(result => {
-                console.log(result.authToken);
                 if (result.reason) {
                     alert(result.data.message);
                     return false;
                 } else {
-                    const token = result.authToken;
-                    localStorage.setItem("jwtToken", token);
-                    // Set token to Auth header
-                    //setAuthToken(token);
-                    // Decode token to get user data
-                    // const dwecoded = jwt_decode(token);
-                    // Set current user
                     return true;
                 }
             })
             .then(component => {
-                console.log(component);
                 if (component) {
                     props.onClose();
                     props.closeMenu();
-                    props.setLoggedIn();
                     props.history.push(`/`);
                     alert('Sign up Successful');
                 }
