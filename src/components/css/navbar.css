@@ -27,6 +27,8 @@
     right:0;
     top:112px;
     color: #fb0;
+    font-family: 'Raleway', sans-serif;
+    z-index: 1;
 }
 
 .sudo-select > div{

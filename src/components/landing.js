@@ -1,21 +1,19 @@
 import React from 'react';
 import './css/landing.css';
-import logo from '../assets/icon.png';
+import landing from '../assets/tiremainpage.png';
 
 export default function LandingPage() {
 
 
     return (
-        <section>
-            <h1>Champions</h1>
-            <img className='landing-img' alt='landing icon' src={logo} />
-            <div className='flex-column'>
-                <button className='landing-button'>
-                    Log In
-                </button>
-                <button className='landing-button'>
-                    Sign Up
-                </button>
+        <section className=''>
+            <div className='landing-intro flex-column'>
+                <div>
+                    <header>
+                        <h1 className='champion-header'>Champions</h1>
+                    </header>
+                    <img className='landing-background' src={landing} />
+                </div>
             </div>
         </section>
     )

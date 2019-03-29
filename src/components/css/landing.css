@@ -1,5 +1,13 @@
 html {
     background-color: #1b1a26;
+    
+}
+
+
+@font-face
+{
+font-family: myFancyFont;
+src: url('ABOVE.ttf')
 }
 
 main {
@@ -30,4 +38,45 @@ main {
 h1{
     margin-top: 0;
     padding: 15px;
+}
+
+.landing-background-female{
+    background-image: url('../../assets/femalemainpage.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 80vh;
+}
+
+.landing-background-male{
+    background-image: url('../../assets/tiremainpage.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 80vh;
+}
+
+.landing-background-male-squat{
+    background-image: url('../../assets/malesquatting.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 80vh;
+}
+
+.landing-intro{
+}
+
+.landing-intro > div{
+    margin: auto;
+    width: 100%;
+    background-color: #302e42;
+    opacity: .7;
+}
+
+.champion-header{
+    position: absolute;
+    color: yellow;
+    font-size: 50px;
+    font-family: 'myFancyFont', sans-serif;
+}
+
+.landing-background{
 }
