@@ -25,6 +25,8 @@
 .workout-form input{
     height: 30px;
     margin: 1%;
+    font-size: 20px;
+    text-align: center;
 }
 
 .workout-form button{

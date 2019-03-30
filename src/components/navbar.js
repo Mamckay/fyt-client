@@ -44,13 +44,20 @@ function Navbar(props) {
             <section className='sudo-select'>
                 <div onClick={() => {
                     props.history.push('/dashboard');
+                    setLoginMenu(false);
                 }}>Dashboard</div>
                 <div onClick={() => {
                     props.history.push('/workout');
+                    setLoginMenu(false);
                 }}>Workout</div>
                 <div onClick={() => {
                     props.history.push('/goals');
+                    setLoginMenu(false);
                 }}>Goals</div>
+                <div onClick={() => {
+                    props.history.push('/timer');
+                    setLoginMenu(false);
+                }}>Timer</div>
                 <div onClick={() => {
                     localStorage.setItem("jwtToken", null);
                     setLoggedIn(false);

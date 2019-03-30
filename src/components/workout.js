@@ -145,7 +145,7 @@ export default function Workout() {
                 return <React.Fragment>
                     <label>Distance</label>
                     <input onChange={e => {
-                        setReps(e.target.value);
+                        setDistance(e.target.value);
                     }}></input>
                 </React.Fragment>;
             case 'Walking':

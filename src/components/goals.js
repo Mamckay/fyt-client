@@ -13,7 +13,7 @@ export default function Goals() {
     const [time, setTime] = useState(false);
     const [distance, setDistance] = useState(false);
 
-    const [goals, setGoals] = useState(null);
+    const [goals, setGoals] = useState([]);
 
     const submitGoal = () => {
         let data = {
@@ -37,7 +37,10 @@ export default function Goals() {
             .then(res => {
                 return res.json();
             })
-            .then(result => console.log(result))
+            .then(result => {
+                fetchGoals();
+                console.log(result)
+            })
             .catch(err => {
                 console.log(err);
             });
@@ -76,7 +79,7 @@ export default function Goals() {
 
     useEffect(() => {
         fetchGoals()
-    }, [])
+    }, [goals.length])
 
 
     const reset = () => {
