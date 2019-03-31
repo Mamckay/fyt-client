@@ -26,7 +26,7 @@
 
 .dashboard-card{
     padding: 2%;
-    background-color: #474658;
+    background-color: #302e42;
     margin: 1%;
     border-radius: 10px;
     transition: .3s;
@@ -38,7 +38,7 @@
 
 .dashboard-card:hover{
     cursor: pointer;
-    background-color: white;
+    background-color: #474658;
 }
 
 a{

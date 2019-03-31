@@ -1,9 +1,20 @@
 .goal-card{
+    display: flex;
+    flex-direction: column;
     border: 2px solid #fb0;
     border-radius: 10px;
     width: 200px;
     height: 300px;
     margin: 1%;
+    font-size: 30px;
+}
+
+.goal-card-title{
+    margin-bottom: 10%;
+}
+
+.goal-card > section  {
+    align-items: flex-end;
 }
 
 .goals-title{
@@ -30,6 +41,7 @@
     flex-direction: column;
     width: 300px;
     margin: 3% auto;
+    font-size: 30px;
 }
 
 .goals-form select{
@@ -49,9 +61,10 @@
     background-color: transparent;
     border: solid 2px #fb0;
     height: 35px;
-    font-size: 25px;
     color: white;
     transition: .3s;
+    font-size: 25px;
+    margin-top: 10px;
 }
 
 .goals-form button:hover{
@@ -59,3 +72,35 @@
     color: #302e42;
     cursor: pointer;
 }
+
+
+.goal-card-button-right{
+    width:50%;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    border-bottom-right-radius: 10px;
+    border: 1px solid #fb0;
+    background: transparent;
+    color: #00b4ff;
+    font-size: 30px;
+}
+
+.goal-card-button-left{
+    width:50%;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    border-bottom-left-radius: 10px;
+    border: 1px solid #fb0;
+    background: transparent;
+    color: #00b4ff;
+    font-size: 30px;
+}
+
+.button-container{
+    display: flex;
+    justify-content: flex-end;
+    margin-top:auto;
+}
+

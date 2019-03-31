@@ -12,8 +12,59 @@ export default function Goals() {
     const [weight, setWeight] = useState(false);
     const [time, setTime] = useState(false);
     const [distance, setDistance] = useState(false);
+    const [results, setResults] = useState([]);
 
     const [goals, setGoals] = useState([]);
+
+    const goalComplete = () => {
+
+        fetch(`${API_BASE_URL}/stats`, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json",
+                Authorization: "Bearer ".concat(
+                    localStorage.getItem("jwtToken")
+                )
+            }
+        })
+            .then(result => {
+                return result
+            })
+            .catch(err => {
+                console.log(err);
+            })
+
+    }
+
+    const deleteGoal = (index) => {
+
+        let data = {
+            Category: results[index].goal.Category,
+            Exercise: results[index].goal.Exercise,
+            Reps: results[index].goal.Reps,
+            Weight: results[index].goal.Weight,
+            Distance: results[index].goal.Distance,
+            Time: results[index].goal.Time
+        }
+
+        fetch(`${API_BASE_URL}/goal`, {
+            method: "DELETE",
+            headers: {
+                "content-type": "application/json",
+                Authorization: "Bearer ".concat(
+                    localStorage.getItem("jwtToken")
+                )
+            },
+            body: JSON.stringify(data)
+        })
+            .then(result => {
+                fetchGoals();
+                console.log(result);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
 
     const submitGoal = () => {
         let data = {
@@ -37,9 +88,9 @@ export default function Goals() {
             .then(res => {
                 return res.json();
             })
-            .then(result => {
+            .then(resp => {
                 fetchGoals();
-                console.log(result)
+                console.log(resp)
             })
             .catch(err => {
                 console.log(err);
@@ -60,13 +111,34 @@ export default function Goals() {
                 return res.json();
             })
             .then(results => {
+                setResults(results);
                 const item = results.map((result, index) => {
                     let temp = Object.keys(result.goal);
                     let dog = temp.map((title, index) => {
-                        return <div key={index}>{title}: {result.goal[title]}</div>
+                        if (title !== 'Category' && title !== 'Exercise') {
+                            return <div key={index} >
+                                {title}: {result.goal[title]}
+                            </div>
+                        }
+                        if (title === 'Exercise') {
+                            return <div className='goal-card-title' key={index} >
+                                {result.goal[title]}
+                            </div>
+                        }
                     })
 
-                    return <div key={index} className='goal-card'>{dog}</div>
+                    return <div key={index} className='goal-card'>
+                        {dog}
+                        <div className='button-container'>
+                            <button onClick={() => {
+                                goalComplete();
+                                deleteGoal(index);
+                            }} className='goal-card-button-left'>✔</button>
+                            <button onClick={() => {
+                                deleteGoal(index);
+                            }} className='goal-card-button-right'>X</button>
+                        </div>
+                    </div>
 
                 })
 
@@ -171,7 +243,7 @@ export default function Goals() {
                 return <React.Fragment>
                     <label>Distance</label>
                     <input onChange={e => {
-                        setReps(e.target.value);
+                        setDistance(e.target.value);
                     }}></input>
                 </React.Fragment>;
             case 'Walking':
@@ -306,13 +378,6 @@ export default function Goals() {
                         e.preventDefault();
                         /* TODO Setup a fetch here */
                         submitGoal();
-                        console.log('Type: Goal');
-                        console.log(category);
-                        console.log(exercise);
-                        console.log(reps);
-                        console.log(weight);
-                        console.log(time);
-                        console.log(distance);
                     }} className='goals-form'>
                         <label>Choose Category</label>
                         <select onChange={e => {

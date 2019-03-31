@@ -7,8 +7,15 @@
     justify-content: space-evenly;
 }
 
+.workout-container div{
+    padding: 10px;
+
+}
+
 .workout-container div:hover{
     cursor: pointer;
+    background-color: #474658;  
+    border-radius: 10px;
 }
 
 .workout-title{

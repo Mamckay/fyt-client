@@ -16,6 +16,10 @@
     margin: 1%;
 }
 
+.timer-button:hover{
+    cursor: pointer;
+}
+
 .timer-input{
     height: 30px;
     margin: 1%;

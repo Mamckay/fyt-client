@@ -24,7 +24,7 @@ export default function Workout() {
         setReps(false);
     }
 
-    const submitGoal = () => {
+    const submitWorkout = () => {
         let data = {
             Category: category,
             Exercise: exercise,
@@ -264,14 +264,8 @@ export default function Workout() {
                     <form id='create-workout' onSubmit={e => {
                         e.preventDefault();
                         /* TODO Setup a fetch here */
-                        submitGoal();
-                        console.log('Type: Workout');
-                        console.log('Category:', category);
-                        console.log('Exercise:', exercise);
-                        console.log('Reps:', reps);
-                        console.log('Weight:', weight);
-                        console.log('Time:', time);
-                        console.log('Distance:', distance);
+                        submitWorkout();
+
                     }} className='goals-form'>
                         <label>Choose Exercise</label>
                         <select onChange={e => {
@@ -293,14 +287,8 @@ export default function Workout() {
                     <form onSubmit={e => {
                         e.preventDefault();
                         /* TODO Setup a fetch here */
-                        submitGoal();
-                        console.log('Type: Workout');
-                        console.log('Category:', category);
-                        console.log('Exercise:', exercise);
-                        console.log('Reps:', reps);
-                        console.log('Weight:', weight);
-                        console.log('Time:', time);
-                        console.log('Distance:', distance);
+                        submitWorkout();
+
                     }} className='goals-form'>
                         <label>Choose Exercise</label>
                         <select onChange={e => {
@@ -324,14 +312,8 @@ export default function Workout() {
                     <form onSubmit={e => {
                         e.preventDefault();
                         /* TODO Setup a fetch here */
-                        submitGoal();
-                        console.log('Type: Workout');
-                        console.log('Category:', category);
-                        console.log('Exercise:', exercise);
-                        console.log('Reps:', reps);
-                        console.log('Weight:', weight);
-                        console.log('Time:', time);
-                        console.log('Distance:', distance);
+                        submitWorkout();
+
                     }} className='goals-form'>
                         <label>Choose Exercise</label>
                         <select onChange={e => {
