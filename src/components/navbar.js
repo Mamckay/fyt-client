@@ -36,8 +36,14 @@ function Navbar(props) {
         </div>
         {loginMenu && !loggedIn ? (
             <section className='sudo-select'>
-                <div onClick={() => setLoginModal(!loginModal)} > Login</div>
-                <div onClick={() => setRegisterModal(!loginModal)} > Sign Up</div>
+                <div onClick={() => {
+                    setLoginMenu(false);
+                    setLoginModal(!loginModal);
+                }} > Login</div>
+                <div onClick={() => {
+                    setLoginMenu(false);
+                    setRegisterModal(!loginModal);
+                }} > Sign Up</div>
             </section>
         ) : null}
         {loginMenu && loggedIn ? (
