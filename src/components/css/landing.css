@@ -40,30 +40,6 @@ h1{
     padding: 15px;
 }
 
-.landing-background-female{
-    background-image: url('../../assets/femalemainpage.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 80vh;
-}
-
-.landing-background-male{
-    background-image: url('../../assets/tiremainpage.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 80vh;
-}
-
-.landing-background-male-squat{
-    background-image: url('../../assets/malesquatting.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 80vh;
-}
-
-.landing-intro{
-}
-
 .landing-intro > div{
     margin: auto;
     width: 100%;
