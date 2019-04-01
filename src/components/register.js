@@ -68,11 +68,11 @@ export default function Register(props) {
                     }
                 }}>
                     <label className='modal-subtitle'>User Name </label>
-                    <input className='modal-input' onChange={e => setUser(e.target.value)}></input>
+                    <input className='modal-input' aria-label='Username' onChange={e => setUser(e.target.value)}></input>
                     <label className='modal-subtitle'>Password </label>
-                    <input className='modal-input' onChange={e => setPassword(e.target.value)}></input>
+                    <input className='modal-input' aria-label='password' type='password' onChange={e => setPassword(e.target.value)}></input>
                     <label className='modal-subtitle'>Confirm Password </label>
-                    <input className='modal-input' onChange={e => setConfirmationPassword(e.target.value)}></input>
+                    <input className='modal-input' aria-label='confirm password' type='password' onChange={e => setConfirmationPassword(e.target.value)}></input>
                     <button className='modal-button' >Sign Up</button>
                 </form>
                 <div className='flex-column'>

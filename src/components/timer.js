@@ -88,7 +88,7 @@ export default class Timer extends React.Component {
             }
             {this.state.isOn ? <p className='timer-showtime'>{this.state.time}</p> : null}
             {this.state.img}
-            <input className='timer-input' onChange={e => {
+            <input aria-label='Set timer in minutes' className='timer-input' onChange={e => {
                 this.setMinutes(e.target.value);
             }}></input>
             <button className='timer-button' onClick={() => {

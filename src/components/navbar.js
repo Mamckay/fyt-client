@@ -26,11 +26,14 @@ function Navbar(props) {
     }, [])
 
     return <section className='navbar'>
-        <Link to='/'>
+        <Link className='nav-logo-container' to='/'>
             <div>
                 <img alt='nav logo' className='nav-logo' src={logo} />
             </div>
         </Link>
+        <header className='champion-header'>
+            <h1>Champions</h1>
+        </header>
         <div className='hamburger' onClick={() => setLoginMenu(!loginMenu)}>
             <img alt='nav burger' className='nav-burger' src={hamburger} />
         </div>

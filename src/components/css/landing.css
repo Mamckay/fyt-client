@@ -54,8 +54,6 @@ h1{
     color: yellow;
     font-size: 50px;
     font-family: 'myFancyFont', sans-serif;
-    background-color: #302e42;
-    opacity: .7;
 }
 
 .champion-header > h1{

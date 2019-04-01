@@ -57,151 +57,140 @@ export default function Workout() {
             case 'Pushups':
                 return <React.Fragment>
                     <label>Reps</label>
-                    <input onChange={e => {
+                    <input aria-label='Pushups Reps' onChange={e => {
                         setReps(e.target.value);
                     }}></input>
                 </React.Fragment>;
             case 'Squats':
                 return <React.Fragment>
                     <label>Reps</label>
-                    <input onChange={e => {
+                    <input aria-label='Squats Reps' onChange={e => {
                         setReps(e.target.value);
                     }}></input>
                     <label>Weight</label>
-                    <input onChange={e => {
+                    <input aria-label='Squats Weight' onChange={e => {
                         setWeight(e.target.value);
                     }}></input>
                 </React.Fragment>;
             case 'Bench':
                 return <React.Fragment>
                     <label>Reps</label>
-                    <input onChange={e => {
+                    <input aria-label='Bench Reps' onChange={e => {
                         setReps(e.target.value);
                     }}></input>
                     <label>Weight</label>
-                    <input onChange={e => {
+                    <input aria-label='Bench Weight' onChange={e => {
                         setWeight(e.target.value);
                     }}></input>
                 </React.Fragment>;
             case 'Incline':
                 return <React.Fragment>
                     <label>Reps</label>
-                    <input onChange={e => {
+                    <input aria-label='Incline Reps' onChange={e => {
                         setReps(e.target.value);
                     }}></input>
                     <label>Weight</label>
-                    <input onChange={e => {
-                        setWeight(e.target.value);
-                    }}></input>
-                </React.Fragment>;
-            case 'incline':
-                return <React.Fragment>
-                    <label>Reps</label>
-                    <input onChange={e => {
-                        setReps(e.target.value);
-                    }}></input>
-                    <label>Weight</label>
-                    <input onChange={e => {
+                    <input aria-label='Incline Weight' onChange={e => {
                         setWeight(e.target.value);
                     }}></input>
                 </React.Fragment>;
             case 'Rows':
                 return <React.Fragment>
                     <label>Reps</label>
-                    <input onChange={e => {
+                    <input aria-label='Rows Reps' onChange={e => {
                         setReps(e.target.value);
                     }}></input>
                     <label>Weight</label>
-                    <input onChange={e => {
+                    <input aria-label='Rows Weight' onChange={e => {
                         setWeight(e.target.value);
                     }}></input>
                 </React.Fragment>;
             case 'Pullups':
                 return <React.Fragment>
                     <label>Reps</label>
-                    <input onChange={e => {
+                    <input aria-label='Pullups' onChange={e => {
                         setReps(e.target.value);
                     }}></input>
                 </React.Fragment>;
             case 'Situps':
                 return <React.Fragment>
                     <label>Reps</label>
-                    <input onChange={e => {
+                    <input aria-label='Situps' onChange={e => {
                         setReps(e.target.value);
                     }}></input>
                 </React.Fragment>;
             case 'Biking':
                 return <React.Fragment>
                     <label>Distance</label>
-                    <input onChange={e => {
+                    <input aria-label='Biking Distance' onChange={e => {
                         setDistance(e.target.value);
                     }}></input>
                     <label>Time</label>
-                    <input onChange={e => {
+                    <input aria-label='Biking Time' onChange={e => {
                         setTime(e.target.value);
                     }}></input>
                 </React.Fragment>;
             case 'Hiking':
                 return <React.Fragment>
                     <label>Distance</label>
-                    <input onChange={e => {
+                    <input aria-label='Hiking Distance' onChange={e => {
                         setDistance(e.target.value);
                     }}></input>
                 </React.Fragment>;
             case 'Walking':
                 return <React.Fragment>
                     <label>Distance</label>
-                    <input onChange={e => {
+                    <input aria-label='Walking Distance' onChange={e => {
                         setDistance(e.target.value);
                     }}></input>
                     <label>Time</label>
-                    <input onChange={e => {
+                    <input aria-label='Walking Time' onChange={e => {
                         setTime(e.target.value);
                     }}></input>
                 </React.Fragment>;
             case 'Running':
                 return <React.Fragment>
                     <label>Distance</label>
-                    <input onChange={e => {
+                    <input aria-label='Running Distance' onChange={e => {
                         setDistance(e.target.value);
                     }}></input>
                     <label>Time</label>
-                    <input onChange={e => {
+                    <input aria-label='Running Time' onChange={e => {
                         setTime(e.target.value);
                     }}></input>
                 </React.Fragment>;
             case 'Swimming':
                 return <React.Fragment>
                     <label>Distance</label>
-                    <input onChange={e => {
+                    <input aria-label='Swimming Distance' onChange={e => {
                         setDistance(e.target.value);
                     }}></input>
                 </React.Fragment>;
             case 'Yoga':
                 return <React.Fragment>
                     <label>Time</label>
-                    <input onChange={e => {
+                    <input aria-label='Yoga' onChange={e => {
                         setTime(e.target.value);
                     }}></input>
                 </React.Fragment>;
             case 'Stretching':
                 return <React.Fragment>
                     <label>Time</label>
-                    <input onChange={e => {
+                    <input aria-label='Stretching' onChange={e => {
                         setTime(e.target.value);
                     }}></input>
                 </React.Fragment>;
             case 'Meditation':
                 return <React.Fragment>
                     <label>Time</label>
-                    <input onChange={e => {
+                    <input aria-label='Meditation' onChange={e => {
                         setTime(e.target.value);
                     }}></input>
                 </React.Fragment>;
             case 'Wall':
                 return <React.Fragment>
                     <label>Time</label>
-                    <input onChange={e => {
+                    <input aria-label='Wall squats' onChange={e => {
                         setTime(e.target.value);
                     }}></input>
                 </React.Fragment>;
@@ -268,7 +257,7 @@ export default function Workout() {
 
                     }} className='goals-form'>
                         <label>Choose Exercise</label>
-                        <select onChange={e => {
+                        <select aria-label='Endurance Exercises' onChange={e => {
                             setExercise(e.target.value);
                             reset();
                         }} name='type'>
@@ -291,7 +280,7 @@ export default function Workout() {
 
                     }} className='goals-form'>
                         <label>Choose Exercise</label>
-                        <select onChange={e => {
+                        <select aria-label='Strength Exercises' onChange={e => {
                             setExercise(e.target.value);
                             reset();
                         }} name='type'>
@@ -316,7 +305,7 @@ export default function Workout() {
 
                     }} className='goals-form'>
                         <label>Choose Exercise</label>
-                        <select onChange={e => {
+                        <select aria-label='Balance Exercises' onChange={e => {
                             setExercise(e.target.value);
                             reset();
                         }} name='type'>

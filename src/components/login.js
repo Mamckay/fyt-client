@@ -63,9 +63,9 @@ export default function Login(props) {
                     userLogin();
                 }}>
                     <label className='modal-subtitle'>User Name </label>
-                    <input className='modal-input' onChange={e => setUser(e.target.value)}></input>
+                    <input className='modal-input' aria-label='Username' onChange={e => setUser(e.target.value)}></input>
                     <label className='modal-subtitle'>Password </label>
-                    <input className='modal-input' onChange={e => setPassword(e.target.value)}></input>
+                    <input className='modal-input' aria-label='password' type='password' onChange={e => setPassword(e.target.value)}></input>
                     <button className='modal-button' >Login</button>
                 </form>
                 <div className='flex-column'>
