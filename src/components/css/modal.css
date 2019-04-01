@@ -68,6 +68,12 @@
     border: 2px solid #fb0;
     color: #fb0;
 }
+.demo-account{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
 
 @media only screen and (max-width: 500px){
     .login-modal{

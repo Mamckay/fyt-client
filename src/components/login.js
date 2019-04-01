@@ -71,6 +71,7 @@ export default function Login(props) {
                 <div className='flex-column'>
                     <button className='modal-button' onClick={props.onClose}>Close</button>
                 </div>
+                <div className='demo-account'><span>Demo account:</span> <span>demovip</span><span>restisrust</span></div>
             </div>
         </div>,
         modalRoot,
