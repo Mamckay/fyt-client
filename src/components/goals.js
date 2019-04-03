@@ -47,6 +47,7 @@ export default function Goals() {
             Time: results[index].goal.Time
         }
 
+
         fetch(`${API_BASE_URL}/goal`, {
             method: "DELETE",
             headers: {
@@ -75,6 +76,23 @@ export default function Goals() {
             Time: time,
             Distance: distance
         }
+
+        if (typeof Number(reps) !== 'number' && reps !== false) {
+            alert('Invalid Number of Reps')
+            return;
+        }
+        if (typeof Number(weight) !== 'number' && weight !== false) {
+            alert('Invalid Weight')
+            return;
+        }
+        if (typeof Number(time) !== 'number' && time !== false) {
+            alert('Invalid Time')
+            return;
+        }
+        if (typeof Number(distance) !== 'number' && distance !== false) {
+            alert('Invalid Distance')
+            return;
+        }
         fetch(`${API_BASE_URL}/goal`, {
             method: "POST",
             headers: {
@@ -95,6 +113,7 @@ export default function Goals() {
             .catch(err => {
                 console.log(err);
             });
+
     }
 
     const fetchGoals = () => {
@@ -126,7 +145,6 @@ export default function Goals() {
                             </div>
                         }
                     })
-
                     return <div key={index} className='goal-card'>
                         {dog}
                         <div className='button-container'>
@@ -141,7 +159,6 @@ export default function Goals() {
                     </div>
 
                 })
-
                 setGoals(item);
             })
             .catch(err => {

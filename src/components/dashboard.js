@@ -9,10 +9,21 @@ import './css/dashboard.css';
 export default function Dashboard() {
 
     const [stats, setStats] = useState({ goals: 0, workouts: 0, weight: 0, time: 0, distance: 0, reps: 0 });
+    const [name, setName] = useState('user');
     /* 
         add a fetch to populate the workout data and statistics on load
     */
     const fetchUserStats = () => {
+        let token = localStorage.getItem("jwtToken")
+
+        function parseJwt(i) {
+            var base64Url = i.split('.')[1];
+            var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            return JSON.parse(window.atob(base64));
+        };
+
+        setName(parseJwt(token).user.username);
+
         fetch(`${API_BASE_URL}/stats/`, {
             method: "GET",
             headers: {
@@ -42,7 +53,7 @@ export default function Dashboard() {
         <section>
             <header>
                 <h1>
-                    Welcome back User!
+                    Welcome back {name}!
                 </h1>
             </header>
             <div className='dashboard-container'>
@@ -67,19 +78,19 @@ export default function Dashboard() {
             </div>
             <div className='dashboard-statistics'>
                 <div className='dashboard-text'>
-                    <h2 className='dashboard-title'>Workouts Completed</h2>
-                    <p>{stats.workouts}</p>
+                    <h2 className='dashboard-title center'>Workouts Completed</h2>
+                    <p className='center'>{stats.workouts}</p>
                 </div>
                 <div className='dashboard-text'>
-                    <h2 className='dashboard-title'>Goals Reached</h2>
-                    <p>{stats.goals}</p>
+                    <h2 className='dashboard-title center'>Goals Reached</h2>
+                    <p className='center'>{stats.goals}</p>
                 </div>
                 <div className='dashboard-text'>
-                    <h2 className='dashboard-title'>Stats</h2>
-                    <p>Distance: {stats.distance} </p>
-                    <p>Time: {stats.time}</p>
-                    <p>Weight: {stats.weight}</p>
-                    <p>Reps: {stats.reps}</p>
+                    <h2 className='dashboard-title center'>Stat Totals</h2>
+                    <p>Total Distance: {stats.distance} miles</p>
+                    <p>Total Time: {stats.time} seconds</p>
+                    <p>Total Weight: {stats.weight} lbs</p>
+                    <p>Total Reps: {stats.reps}</p>
                 </div>
             </div>
         </section>

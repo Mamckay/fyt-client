@@ -1,6 +1,6 @@
 # Champions
 
-<div align="center"><img src="./public/ico.png" width="150px" /></div>
+<div align="center"><img src="./public/icon.png" width="150px" /></div>
 
 ## Mission
 

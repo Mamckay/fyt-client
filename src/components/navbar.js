@@ -15,7 +15,7 @@ function Navbar(props) {
 
     const setup = () => {
         let token = localStorage.getItem("jwtToken");
-        if (!token) {
+        if (token) {
             setLoggedIn(true);
             props.history.push('/dashboard');
         }
@@ -23,7 +23,7 @@ function Navbar(props) {
 
     useEffect(() => {
         setup();
-    }, [])
+    }, [loggedIn])
 
     return <section className='navbar'>
         <Link className='nav-logo-container' to='/'>

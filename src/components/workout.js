@@ -33,6 +33,24 @@ export default function Workout() {
             Time: time,
             Distance: distance
         }
+
+        if (typeof Number(reps) !== 'number' && reps !== false) {
+            alert('Invalid Number of Reps')
+            return;
+        }
+        if (typeof Number(weight) !== 'number' && weight !== false) {
+            alert('Invalid Weight')
+            return;
+        }
+        if (typeof Number(time) !== 'number' && time !== false) {
+            alert('Invalid Time')
+            return;
+        }
+        if (typeof Number(distance) !== 'number' && distance !== false) {
+            alert('Invalid Distance')
+            return;
+        }
+
         fetch(`${API_BASE_URL}/workout`, {
             method: "POST",
             headers: {

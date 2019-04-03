@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import axios from 'axios';
 import music from '../assets/audio/letsGo.mp3';
 import './css/timer.css';
@@ -39,7 +39,7 @@ export default class Timer extends React.Component {
         })
             .then(res => {
                 console.log(res.data.data);
-                this.setImage(<img className='gif' src={res.data.data.fixed_height_downsampled_url} />);
+                this.setImage(<img alt='gif magic' className='gif' src={res.data.data.fixed_height_downsampled_url} />);
             })
             .catch(err => {
                 alert('Event name and description must be unique');
