@@ -15,7 +15,6 @@ export default function Login(props) {
             password
         };
 
-        console.log(data);
         fetch(`${API_BASE_URL}/auth/login`, {
             method: "POST",
             headers: {

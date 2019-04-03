@@ -38,7 +38,6 @@ export default class Timer extends React.Component {
             },
         })
             .then(res => {
-                console.log(res.data.data);
                 this.setImage(<img alt='gif magic' className='gif' src={res.data.data.fixed_height_downsampled_url} />);
             })
             .catch(err => {
@@ -48,7 +47,6 @@ export default class Timer extends React.Component {
     }
 
     setMinutes(min) {
-        console.log('minutes set');
         this.setState({
             minutes: min * 60
         })
@@ -61,7 +59,6 @@ export default class Timer extends React.Component {
             start: Date.now() - this.state.time
         })
         this.timer = setInterval(() => {
-            console.log(this.state.time);
             if (this.state.time > this.state.minutes) {
                 this.stopTimer();
                 this.setFinished();

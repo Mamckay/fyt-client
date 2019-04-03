@@ -64,8 +64,9 @@ export default function Workout() {
             .then(res => {
                 return res.json();
             })
-            .then(result => console.log(result))
+            .then(result => result)
             .catch(err => {
+                alert('Error submitting workout');
                 console.log(err);
             });
     }

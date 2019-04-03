@@ -60,7 +60,6 @@ export default function Goals() {
         })
             .then(result => {
                 fetchGoals();
-                console.log(result);
             })
             .catch(err => {
                 console.log(err);
@@ -108,7 +107,6 @@ export default function Goals() {
             })
             .then(resp => {
                 fetchGoals();
-                console.log(resp)
             })
             .catch(err => {
                 console.log(err);
