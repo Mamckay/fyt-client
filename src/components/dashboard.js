@@ -16,15 +16,15 @@ export default function Dashboard() {
     const fetchUserStats = () => {
         let token = localStorage.getItem("jwtToken")
 
-        if (token) {
-            function parseJwt(i) {
-                var base64Url = i.split('.')[1];
-                var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-                return JSON.parse(window.atob(base64));
-            };
-        }
 
-        setName(parseJwt(token).user.username);
+        function parseJwt(i) {
+            var base64Url = i.split('.')[1];
+            var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            return JSON.parse(window.atob(base64));
+        };
+        if (token !== 'null') {
+            setName(parseJwt(token).user.username);
+        }
 
         fetch(`${API_BASE_URL}/stats/`, {
             method: "GET",

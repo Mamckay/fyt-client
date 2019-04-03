@@ -15,7 +15,7 @@ function Navbar(props) {
 
     const setup = () => {
         let token = localStorage.getItem("jwtToken");
-        if (token) {
+        if (token !== 'null') {
             setLoggedIn(true);
             props.history.push('/dashboard');
         }
@@ -70,6 +70,7 @@ function Navbar(props) {
                 <div onClick={() => {
                     localStorage.setItem("jwtToken", null);
                     setLoggedIn(false);
+                    setLoginMenu(false);
                     props.history.push('/');
                 }} > Logout</div>
             </section>
