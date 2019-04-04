@@ -8,6 +8,14 @@ https://fytchampion.herokuapp.com/
 
 Being healthy is not only great for the body but great for the mind as well. Keep yourself sharp both mentally and physically with Champions.
 
+## Tech Stack
+
+#### Javascript
+#### MongoDb
+#### Express
+#### Passport
+#### React
+#### Giphy API
 
 ## Screenshots
 
