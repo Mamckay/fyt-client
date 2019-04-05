@@ -42,6 +42,7 @@ Being healthy is not only great for the body but great for the mind as well. Kee
 
     Challenge a friend to a "race". Racing them to the specified goal and earning the precious bragging rights.
 
+```
 /api
 ├── /users
 │   └── GET
@@ -75,4 +76,4 @@ Being healthy is not only great for the body but great for the mind as well. Kee
 │       └── /
 │   └── DELETE
 │       └── /
-/
+```
