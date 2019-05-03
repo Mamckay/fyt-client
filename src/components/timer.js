@@ -38,6 +38,9 @@ export default class Timer extends React.Component {
             },
         })
             .then(res => {
+                this.setState({
+                    finished: true
+                })
                 this.setImage(<img alt='gif magic' className='gif' src={res.data.data.fixed_height_downsampled_url} />);
             })
             .catch(err => {

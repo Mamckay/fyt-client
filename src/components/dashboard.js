@@ -61,19 +61,19 @@ export default function Dashboard() {
             <div className='dashboard-container'>
                 <Link to='/goals' className='dashboard-card'>
                     <div>
-                        <img alt='Goals icon' className='dashboard-img' src={target} />
+                        <img alt='Goals icon' className='dashboard-img' src='https://as2.ftcdn.net/jpg/01/37/40/83/160_F_137408357_CexBRuseaKpSNFoJD2bdj786NuEqfNvi.jpg' />
                         <h2>Goals</h2>
                     </div>
                 </Link>
                 <Link to='/workout' className='dashboard-card'>
                     <div>
-                        <img alt='Workout icon' className='dashboard-img' src={workout} />
+                        <img alt='Workout icon' className='dashboard-img' src='https://as2.ftcdn.net/jpg/01/95/63/79/160_F_195637927_WfYRtfPcO20UoqBpO417b9T0x2IWydEK.jpg' />
                         <h2>Workout</h2>
                     </div>
                 </Link>
                 <Link to='/timer' className='dashboard-card'>
                     <div>
-                        <img alt='Workout icon' className='dashboard-img' src={history} />
+                        <img alt='Workout icon' className='dashboard-img' src='https://as2.ftcdn.net/jpg/01/17/09/11/160_F_117091198_rBKKyusIVMzzCGF7R9uyQpGImfEmO6d6.jpg' />
                         <h2>Timer</h2>
                     </div>
                 </Link>
